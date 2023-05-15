@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+
+<section>
+
+    <div class="container p-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header text-center fs-4">Login Page</div>
+
+                    <div th:if="${param.error}" class="alert alert-danger">
+                        Invalid Username Or Password</div>
+
+                    <div th:if="${param.logout}" class="alert alert-success">
+                        Logout Successfully</div>
+
+                    <div class="card-body">
+                        <form action="/myLogin" method="post">
+<!--                            <label>Select Role</label>-->
+<!--                            <select class="form-select mb-3"-->
+<!--                                    name="role"-->
+<!--                                    aria-label="Default select example">-->
+<!--                                <option selected value="rider">Rider</option>-->
+<!--                                <option value="admin">Admin</option>-->
+<!--                                <option value="owner">Owner</option>-->
+<!--                                <option value="customer">Customer</option>-->
+<!--                            </select>-->
+                            <div class="mb-3">
+                                <label>Enter Email</label> <input type="text" name="username"
+                                                                  class="form-control">
+                            </div>
+
+
+                            <div class="mb-3">
+                                <label>Enter Password</label> <input type="text"
+                                                                     name="password" class="form-control">
+                            </div>
+
+
+<!--                            <div class="mb-4">-->
+<!--                                <p>Select Gender:</p>-->
+<!--                                <input type="radio" id="Admin" name="role" value="ROLE_ADMIN">-->
+<!--                                <label for="Admin">Admin</label><br>-->
+<!--                                <input type="radio" id="Rider" name="role" value="ROLE_RIDER">-->
+<!--                                <label for="Rider">Rider</label><br>-->
+<!--                                <input type="radio" id="Owner" name="role" value="ROLE_OWNER">-->
+<!--                                <label for="Owner">Owner</label>-->
+<!--                                <input type="radio" id="Customer" name="role" value="ROLE_CUSTOMER">-->
+<!--                                <label for="Customer">Customer</label>-->
+<!--                            </div>-->
+                            <button class="btn btn-info col-md-12">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</section>
+
+
+
+
+</body>
+</html>

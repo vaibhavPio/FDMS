@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="baseCustomer::layout6(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<section>
+
+    <h1 style="text-align:center;">Old Orders</h1>
+
+    <table style="text-align:center;" class="table table-stripped">
+        <thead class="dark">
+        <tr>
+            <td><h6>Order Id</h6></td>
+            <td><h6>Food Name</h6></td>
+            <td><h6>Food Details</h6></td>
+            <td><h6>Price</h6></td>
+            <td><h6>Quantity</h6></td>
+            <td><h6>Total Amount</h6></td>
+            <td><h6>Restaurant Name</h6></td>
+            <td><h6>Order Date</h6></td>
+
+        </tr>
+        </thead>
+        <tr th:each="placeOrders:${placeOrders}">
+            <td th:text="${placeOrders.orderId}">Order Id</td>
+            <td th:text="${placeOrders.foodName}">Food Name</td>
+            <td th:text="${placeOrders.foodDetails}">Food Details</td>
+            <td th:text="${placeOrders.foodPrice}">Price</td>
+            <td th:text="${placeOrders.foodQuantity}">Quantity</td>
+            <td th:text="${placeOrders.totalPrice}">Total Amount</td>
+            <td th:text="${placeOrders.restaurantName}">Restaurant Name</td>
+            <td th:text="${placeOrders.date}">Order Date</td>
+
+
+
+
+
+        </tr>
+        <a th:href="@{'/customer/createPdf'}" class="btn btn-success">Download PDF</a>
+    </table>
+
+
+</section>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="baseCustomer2::layout7(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<SECTION>
+
+    <h1 style="text-align:center;">Place Order</h1>
+    <table class="table table-stripped">
+        <thead class="dark">
+        <tr>
+            <td><h6>Food Id</h6></td>
+            <td><h6>Food Name</h6></td>
+            <td><h6>Food Price</h6></td>
+            <td><h6>Food Description</h6></td>
+            <td><h6>Place Order</h6></td>
+            <td><h6>Add to cart</h6></td>
+        </tr>
+
+        </thead>
+        <tr th:each="food:${food}">
+            <td th:text="${food.foodId}">Id</td>
+            <td th:text="${food.foodName}">Name</td>
+            <td th:text="${food.foodPrice}">Price</td>
+            <td th:text="${food.foodDetails}">Description</td>
+            <td><a style="color:green" th:href="@{'/customer/placeOrder'+${food.foodId}}"><i class="fa-solid fa-truck-fast ms-4"></i></i></i></a></td>
+            <td> <a style="color:black" href="/customer/addToCart"><i class="fa-solid fa-cart-plus ms-4"></i></i></a></td>
+<!--            <td><a th:href="@{'/admin/deleteRider/'+${riderEntity.riderId}}" class="btn btn-danger">Delete</a> </td>-->
+        </tr>
+    </table>
+
+</SECTION>
+</body>
+</html>

@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="base3::layout3(~{::section})">
+<head>
+    <!--    script for static main.ja-->
+    <!--    <script type="text/javascript" src="../static/main.js" th:src="@{/main.js}"></script>-->
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section>
+    <h1 style="text-align:center;">Available Restaurant's</h1>
+    <table style="text-align:center;" class="table table-stripped">
+        <thead class="dark">
+        <tr>
+            <td><h6>Restaurant Id</h6></td>
+            <td><h6>Owner Name</h6></td>
+            <td><h6>Gender</h6></td>
+            <td><h6>Email</h6></td>
+            <td><h6>Contact Number</h6></td>
+            <td><h6>Restaurant Name</h6></td>
+            <td><h6>Restaurant Address</h6></td>
+            <td><h6>Activation Status</h6></td>
+            <td><h6>Change Status</h6></td>
+            <td><h6>Edit Details</h6></td>
+            <td><h6>Delete Details</h6></td>
+
+        </tr>
+        </thead>
+        <tr th:each="ownerEntity:${ownerEntities}">
+            <td th:text="${ownerEntity.restaurantId}">Id</td>
+            <td th:text="${ownerEntity.ownerName}">Name</td>
+            <td th:text="${ownerEntity.gender}">Gender</td>
+            <td th:text="${ownerEntity.email}">Email</td>
+            <td th:text="${ownerEntity.phoneNumber}">Contact Number</td>
+            <td th:text="${ownerEntity.restaurantName}">Restaurant Name</td>
+            <td th:text="${ownerEntity.restaurantAddress}">Restaurant Address</td>
+            <td th:text="${ownerEntity.activationStatus}">Activation</td>
+
+            <td><a th:href="@{'/admin/activateOwnerStatus/'+${ownerEntity.restaurantId}}" class="btn btn-success">Activate</a>
+                <a th:href="@{'/admin/deactivateOwnerStatus/'+${ownerEntity.restaurantId}}" class="btn btn-primary">Deactivate</a></td>
+            <td><a th:href="@{'/admin/updateOwnerInfo'+${ownerEntity.restaurantId}}" class="btn btn-warning">Edit</a> </td>
+            <td><a th:href="@{'/admin/deleteOwner/'+${ownerEntity.restaurantId}}" class="btn btn-danger">Delete</a> </td>
+
+        </tr>
+    </table>
+</section>
+</body>
+</html>

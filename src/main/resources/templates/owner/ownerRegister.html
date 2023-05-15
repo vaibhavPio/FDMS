@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<section>
+
+    <div class="container p-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header text-center fs-4">Restaurant Register</div>
+
+                    <th:block th:if="${session.msg}">
+                        <p class="text-center fs-4 text-success">[[${session.msg}]]</p>
+                        <th:block th:text="${#session.removeAttribute('msg')}"></th:block>
+                    </th:block>
+                    <div class="card-body">
+
+                        <form  th:action="createOwner" th:object="${ownerEntity}" method="post">
+                            <!--                                      <form action="createRider" method="post">-->
+                            <div class="mb-3">
+                                <label>Enter Owner Name</label> <input type="text"
+                                                                      name="ownerName" class="form-control" placeholder="Enter OwnerName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label>Enter Email</label> <input type="email" name="email"
+                                                                  class="form-control" placeholder="Enter ValidEmail" required>
+                            </div>
+                            <div class="mb-3">
+                                <p>Select Gender:</p>
+                                <input type="radio" id="Male" name="gender" value="Male">
+                                <label for="Male">Male</label><br>
+                                <input type="radio" id="Female" name="gender" value="Female">
+                                <label for="Female">Female</label><br>
+                                <input type="radio" id="Other" name="gender" value="Other">
+                                <label for="Other">Other</label>
+                            </div>
+
+                            <div class="mb-3">
+                                <label>Enter Restaurant Name</label> <input type="text"
+                                                                name="restaurantName" class="form-control" placeholder="Enter RestaurantName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label>Enter Restaurant Address</label> <input type="text" name="restaurantAddress"
+                                                                    class="form-control" placeholder="Enter RestaurantAddress" required>
+                            </div>
+
+
+
+                            <div class="mb-3">
+                                <label>Enter Mobile Number</label> <input type="text"
+                                                                          name="phoneNumber" class="form-control" placeholder="Enter ValidPhoneNumber" required>
+                            </div>
+                            <div class="mb-3">
+                                <label>Enter Password</label> <input type="text"
+                                                                     name="password" class="form-control" placeholder="Greater than 3char" required>
+                            </div>
+
+                            <!--                            <div class="mb-3">-->
+                            <!--                                <label>Upload ID Proof</label> <input type="image"-->
+                            <!--                                                                name="identityProof" class="form-control">-->
+                            <!--                            </div>-->
+                            <button class="btn btn-info col-md-12">Restaurant Register</button>
+                        </form>
+                        <p class="py-2 text-center ">Already have an account? <a href="/signIn">Sign-In</a> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="baseAdminEditForUser::layout4(~{::section})">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+</head>
+<section>
+  <body>
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 offset-md-3">
+              <div class="card">
+                  <div class="card-header text-center fs-4">Update Restaurant</div>
+
+                  <div class="card-body">
+
+                      <form  action="ownerEditing" th:object="${owner}" >
+
+                          <input type="hidden"
+                                 name="restaurantId" class="form-control" th:value="${owner.restaurantId}">
+                          <input type="hidden"
+                                 name="role" class="form-control" th:value="${owner.role}">
+                          <input type="hidden"
+                                 name="approvedStatus" class="form-control" th:value="${owner.approvedStatus}">
+                          <input type="hidden"
+                                 name="email" class="form-control" th:value="${owner.email}" >
+                          <input type="hidden"
+                                 name="password" class="form-control" th:value="${owner.password}">
+
+                          <div class="mb-3">
+                              <label>Update Owner Name</label> <input type="text"
+                                                                     name="ownerName" class="form-control" placeholder="Update OwnerName" th:value="${owner.ownerName}">
+                          </div>
+                          <div class="mb-3">
+                              <p>Select Gender: <input type="text" name="gender" class="form-control" th:value="${owner.gender}"></p>
+                          </div>
+                          <div class="mb-3">
+                              <label>Update Restaurant Name</label> <input type="text"
+                                                                          name="restaurantName" class="form-control" placeholder="Update RestaurantName" th:value="${owner.restaurantName}">
+                          </div>
+                          <div class="mb-3">
+                              <label>Update Mobile Number</label> <input type="text"
+                                                                        name="phoneNumber" class="form-control" placeholder="Update PhoneNumber" th:value="${owner.phoneNumber}">
+                          </div>
+                          <div class="mb-3">
+                              <label>Update Restaurant Address</label> <input type="text"
+                                                                             name="restaurantAddress" class="form-control" placeholder="Update RestaurantAddress" th:value="${owner.restaurantAddress}">
+                          </div>
+                          <button class="btn btn-info col-md-12">Update-Changes</button>
+                      </form>
+                      <p class="py-2 text-center ">Check Restaurant list <a href="/admin/getAllOwner"> All Restaurant's</a> </p>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  </body>
+</section>
+</html>
+
+

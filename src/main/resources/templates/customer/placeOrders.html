@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="baseCustomer2::layout7(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<section>
+    <body >
+
+    <div class="container p-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header text-center fs-4"><i>Place Order</i></div>
+
+                    <div class="card-body">
+
+                        <form  th:action="confirmOrder" th:object="${food}" >
+
+                            <input type="hidden"
+                                   name="foodId" class="form-control" th:value="${food.foodId}">
+
+                            <div class="mb-3">
+                                <label>Food Name</label>  <input type="text" name="foodName"
+                                                                class="form-control" th:value="${food.foodName}" readonly>
+                            </div>
+
+                            <div class="mb-3">
+                                <label >Food Price</label> <input type="number"
+                                                                 name="foodPrice" class="form-control" th:value="${food.foodPrice}" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label>Food Description</label> <input type="text"
+                                                                       name="foodDetails" class="form-control" th:value="${food.foodDetails}" readonly>
+                            </div>
+
+                            <div class="mb-3">
+                                <label>Food Quantity</label> <input type="number"
+                                                                    name="foodQuantity" class="form-control" th:value="${food.foodQuantity}">
+                            </div>
+<!--                            <div class="mb-3">-->
+<!--                                <label>Total Price</label> <input type="number"-->
+<!--                                                                    name="totalPrice" class="form-control" readonly>-->
+<!--                               <input type="submit" value="Calculate Order Total"/>-->
+<!--                            </div>-->
+
+                            <button class="btn btn-info col-md-12">Confirm Order</button>
+                        </form>
+                        <p class="py-2 text-center ">Check food list <a href="/customer"> All Food's</a> </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+</section>
+
+</html>

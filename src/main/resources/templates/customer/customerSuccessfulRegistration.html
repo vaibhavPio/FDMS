@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="base2::layout2(~{::section})">
+<head>
+    <title>Registration Success</title>
+</head>
+<section>
+<body>
+<center>
+
+    <h3><span th:text="'A verification email has been sent to: ' + ${email}"></span></h3>
+    Go back for SignIn <a href="/signIn">Sign-In</a> </p>
+</center>
+</body>
+</section>
+</html>

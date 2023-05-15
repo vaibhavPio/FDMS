@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="base3::layout3(~{::section})">
+<head>
+    <!--    script for static main.ja-->
+    <!--    <script type="text/javascript" src="../static/main.js" th:src="@{/main.js}"></script>-->
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section>
+    <h1 style="text-align:center;">Customer's</h1>
+    <table class="table table-stripped">
+        <thead class="dark">
+        <tr>
+            <td><h6>Customer Id</h6></td>
+            <td><h6>Customer Name</h6></td>
+            <td><h6>Gender</h6></td>
+            <td><h6>Email</h6></td>
+            <td><h6>Contact Number</h6></td>
+            <td><h6>DOB</h6></td>
+            <td><h6>Edit Details</h6></td>
+            <td><h6>Activation Status</h6></td>
+            <!--            <td><h6>Approved Status</h6></td>-->
+
+            <!--            <td><h6>Change Status</h6></td>-->
+        </tr>
+        </thead>
+        <tr th:each="customerEntity:${customerEntities}">
+            <td th:text="${customerEntity.customerId}">Id</td>
+            <td th:text="${customerEntity.name}">Customer Name</td>
+            <td th:text="${customerEntity.gender}">Gender</td>
+            <td th:text="${customerEntity.email}">Email</td>
+            <td th:text="${customerEntity.phoneNumber}">Contact Number</td>
+            <td th:text="${customerEntity.dateOfBirth}">DOB</td>
+            <!--            <td th:text="${riderEntity.activationStatus}">Activation Status</td>-->
+
+            <td><a th:href="@{'/admin/updateCustomerInfo'+${customerEntity.customerId}}" class="btn btn-warning">Edit</a> </td>
+            <td><a th:href="@{'/admin/deleteCustomer/'+${customerEntity.customerId}}" class="btn btn-danger">Delete</a> </td>
+<!--            <td><a th:href="@{/customerEntities/giveApproval/(id=${customerEntity.customerId})}" class="btn btn-warning">Edit</a> </td>-->
+<!--            <td><a th:href="@{/customerEntities/delete/(id=${customerEntity.customerId})}" class="btn btn-primary" >In-process..</a> </td>-->
+        </tr>
+    </table>
+</section>
+</body>
+</html>

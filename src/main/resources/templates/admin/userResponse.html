@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="base3::layout3(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+</head>
+<body>
+<section>
+
+<h1 style="text-align:center;">Suggestion and Requests</h1>
+<table style="text-align:center;" class="table table-stripped">
+    <thead class="dark">
+    <tr>
+        <td><h6>Request Id</h6></td>
+        <td><h6>User Name</h6></td>
+        <td><h6>User Role</h6></td>
+        <td><h6>User Id</h6></td>
+        <td><h6>Requests</h6></td>
+        <td><h6>Request Status</h6></td>
+
+    </tr>
+    </thead>
+    <tr th:each="suggestionList:${suggestionList}">
+        <td th:text="${suggestionList.requestId}">Id</td>
+        <td th:text="${suggestionList.name}">User Name</td>
+        <td th:text="${suggestionList.role}">User Role</td>
+        <td th:text="${suggestionList.userName}">User Id</td>
+        <td th:text="${suggestionList.request}">Request</td>
+
+
+        <td><a th:href="@{'/admin/removeRequest/'+${suggestionList.requestId}}" class="btn btn-secondary">Done</a> </td>
+<!--        <td> <a th:href="@{'/admin/removeRequest/'+${suggestionList.requestId}}" style="color:black" ><i class="fa-solid fa-badge-check"></i></a></td>-->
+
+    </tr>
+</table>
+</section>
+
+</body>
+
+</html>

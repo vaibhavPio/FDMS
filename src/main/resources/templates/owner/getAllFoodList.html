@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="baseOwnerHome::layout5(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    <script src="https://kit.fontawesome.com/0faddclaf8.js" crossorigin="anonymous"></script>-->
+
+</head>
+<body>
+
+<section>
+    <h1 style="text-align:center;">Available Food's</h1>
+
+    <p><a class="btn btn-success" href="addFoodList">Add Food</a> </p>
+
+    <table class="table table-stripped">
+        <thead class="dark">
+        <tr>
+            <td><h6>Food Id</h6></td>
+            <td><h6>Food Name</h6></td>
+<!--            <td><h6>Food Image</h6></td>-->
+            <td><h6>Food Price</h6></td>
+            <td><h6>Food Description</h6></td>
+            <td><h6>Action</h6></td>
+
+        </tr>
+        </thead>
+        <tr th:each="foodEntity:${foodList}">
+            <td th:text="${foodEntity.foodId}">Id</td>
+            <td th:text="${foodEntity.foodName}">Name</td>
+            <td th:text="${foodEntity.foodPrice}">Price</td>
+            <td th:text="${foodEntity.foodDetails}">Description</td>
+            <td><a style="color:blue" th:href="@{'/owner/editFood'+${foodEntity.foodId}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                <a style="color:red" th:href="@{'/owner/deleteFood/'+${foodEntity.foodId}}"><i class="fa-solid fa-trash ms-4"></i></a></td>
+<!--            <td><a th:href="@{'/owner/updateFoodInfo/'+${foodEntity.foodId}}" class="btn btn-warning">Update</a> </td>-->
+<!--            <td><a th:href="@{'/owner/deleteFood/'+${foodEntity.foodId}}" class="btn btn-danger">Delete</a> </td>-->
+
+
+            <!--            <td><a th:href="@{'/admin/updateOwnerInfo/'+${ownerEntity.restaurantId}}" class="btn btn-warning">Edit</a> </td>-->
+<!--            <td><a th:href="@{'/admin/deleteOwner/'+${ownerEntity.restaurantId}}" class="btn btn-danger">Delete</a> </td>-->
+            <!--            <td><a th:href="@{/ownerEntities/giveApproval/(id=${ownerEntity.restaurantId})}" class="btn btn-warning">Edit</a> </td>-->
+            <!--            <td><a th:href="@{/ownerEntities/delete/(id=${ownerEntity.restaurantId})}" class="btn btn-primary" >In-process..</a> </td>-->
+        </tr>
+    </table>
+
+
+</section>
+
+</body>
+</html>

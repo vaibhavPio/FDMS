@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="baseCustomer::layout6(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<section>
+<body>
+
+    <h1 style="text-align:center;">Restaurant's</h1>
+    <table class="table table-stripped">
+        <thead class="dark">
+        <tr>
+            <td><h6>Restaurant Id</h6></td>
+            <td><h6>Restaurant Name</h6></td>
+            <td><h6>Restaurant Address</h6></td>
+            <td><h6>Contact Number</h6></td>
+            <td><h6>Check for foods</h6></td>
+        </tr>
+        </thead>
+        <tr th:each="ownerEntityList:${ownerEntityList}">
+            <td th:text="${ownerEntityList.restaurantId}">Id</td>
+            <td th:text="${ownerEntityList.restaurantName}">Restaurant Name</td>
+            <td th:text="${ownerEntityList.restaurantAddress}">Restaurant Address</td>
+            <td th:text="${ownerEntityList.phoneNumber}">Contact Number</td>
+
+            <td><a th:href="@{'/customer/getFoodFromRestaurant/'+${ownerEntityList.restaurantId}}" class="btn btn-secondary">Check foods</a></td>
+
+        </tr>
+    </table>
+</body>
+</section>
+</html>

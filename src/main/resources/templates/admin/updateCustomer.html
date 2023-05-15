@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="baseAdminEditForUser::layout4(~{::section})">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<section>
+  <body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card">
+          <div class="card-header text-center fs-4">Update Customer</div>
+
+          <div class="card-body">
+
+            <form  th:action="customerEditing" th:object="${customer}" >
+
+              <input type="hidden"
+                     name="customerId" class="form-control" th:value="${customer.customerId}">
+              <input type="hidden"
+                     name="role" class="form-control" th:value="${customer.role}">
+              <input type="hidden"
+                     name="totalOrder" class="form-control" th:value="${customer.totalOrder}">
+              <input type="hidden"
+                     name="isEnabled" class="form-control" th:value="${customer.isEnabled}">
+              <input type="hidden"
+                     name="email" class="form-control" th:value="${customer.email}" >
+              <input type="hidden"
+                     name="password" class="form-control" th:value="${customer.password}">
+
+              <div class="mb-3">
+                <label>Update Name</label> <input type="text"
+                                                       name="name" class="form-control" placeholder="Update Name" th:value="${customer.name}">
+              </div>
+              <div class="mb-3">
+                <p>Select Gender: <input type="text" name="gender" class="form-control" th:value="${customer.gender}"></p>
+              </div>
+
+              <div class="mb-3">
+                <label>Update Mobile Number</label> <input type="text"
+                                                          name="phoneNumber" class="form-control" placeholder="Update PhoneNumber" th:value="${customer.phoneNumber}">
+              </div>
+              <div class="mb-3">
+                <label>Update Address</label> <input type="text"
+                                                               name="address" class="form-control" placeholder="Update Address" th:value="${customer.address}">
+              </div>
+              <div class="mb-3">
+                <label>Update DOB</label> <input type="date"
+                                                           name="dateOfBirth" class="form-control" placeholder="Update DOB" th:value="${customer.dateOfBirth}">
+              </div>
+              <button class="btn btn-info col-md-12">Update-Changes</button>
+            </form>
+            <p class="py-2 text-center ">Check Restaurant list <a href="/admin/getAllCustomer"> All Customer's</a> </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </body>
+</section>
+</html>
+
+

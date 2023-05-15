@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="baseOwnerHome::layout5(~{::section})">
+
+<head>
+
+    <title>Title</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>$('#tskill').change(function () {
+    var id = $(this).val();
+    var text = $('option:selected', this).text(); //to get selected text
+    alert(text)
+});</script>
+<body>
+
+<section>
+
+
+    <h1 style="text-align:center;">Order Request's</h1>
+    <table style="text-align:center;" class="table table-stripped">
+        <thead class="dark">
+        <tr>
+            <td><h6>Order Id</h6></td>
+            <td><h6>Food Name</h6></td>
+            <td><h6>Details</h6></td>
+            <td><h6>Quantity</h6></td>
+            <td><h6>Food Price</h6></td>
+            <td><h6>Total Amount</h6></td>
+            <td><h6>Customer Name</h6></td>
+            <td><h6>Order Date</h6></td>
+            <td><h6>Order Status</h6></td>
+            <td><h6>Change Status</h6></td>
+            <td><h6></h6></td>
+
+        </tr>
+        </thead>
+        <tr th:each="orderList:${orderList}">
+            <td th:text="${orderList.orderId}">orderId</td>
+            <td th:text="${orderList.foodName}">foodName</td>
+            <td th:text="${orderList.foodDetails}">foodDetails</td>
+            <td th:text="${orderList.foodQuantity}">Quantity</td>
+            <td th:text="${orderList.foodPrice}">foodPrice</td>
+            <td th:text="${orderList.totalPrice}">totalPrice</td>
+            <td th:text="${orderList.customerName}">customerName</td>
+            <td th:text="${orderList.date}">Order Date</td>
+            <td th:text="${orderList.orderStatus} ">Order Status</td>
+
+
+            <td><div class="form-group">
+<!--                <label for="orderStatus"> </label>-->
+                <select name="orderStatus" class="form-control" id="orderDemo">
+                    <option>Completed</option>
+                    <option>Cancel</option>
+                </select>
+            </div></td>
+
+
+<!--          <td> <select class="form-select" aria-label="Default select example" id="myStatus">-->
+<!--              <option selected>Update Status</option>-->
+<!--              <option value="1">Completed</option>-->
+<!--              <option value="2">Cancel</option>-->
+<!--          </select></td>-->
+
+<!--          <td>-->
+<!--            <select id="tskill" name="tskill" >-->
+<!--                <option value="1">One </option>-->
+<!--                <option value="2">Two </option>-->
+<!--                <option value="3">three </option>-->
+<!--                <option value="4">four </option>-->
+<!--            </select></td>-->
+
+            <td><a th:href="@{'/owner/updateOrderInfo'+'/'+${orderList.orderId}+'/'+${orderDemo}}" class="btn btn-warning" >Set</a> </td>
+
+        </tr>
+    </table>
+</section>
+</body>
+</html>

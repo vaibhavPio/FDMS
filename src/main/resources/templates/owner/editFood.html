@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="baseOwnerHome::layout5(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<section>
+
+
+    <div class="container p-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header text-center fs-4">Update Food Info</div>
+
+<!--                        <form  class="card-body" th:action="@{foodEditing}" method="post" th:object="${food}" >-->
+
+                    <form  class="card-body" th:action="foodEditing" >
+
+                            <input type="hidden" name="foodId"  class="form-control" th:value="${food.foodId}"/>
+<!--                            <input type="hidden" name="foodId" th:value="${food.foodId}"-->
+<!--                                   class="form-control">-->
+
+                            <div class="mb-3">
+                                <label>Food Name</label> <input type="text" name="foodName"
+                                                                class="form-control"th:value="${food.foodName}">
+                            </div>
+
+
+                            <div class="mb-3">
+                                <label>Food Price</label> <input type="number" name="foodPrice"
+                                                                 class="form-control"th:value="${food.foodPrice}">
+                            </div>
+<!--                            <div class="mb-3">-->
+<!--                                <label>Food Image</label><input type="file"-->
+<!--                                                                name="img" class="form-control">-->
+<!--                            </div>-->
+                            <div class="mb-3">
+                                <label>Food Description</label> <input type="text" name="foodDetails"
+                                                                       class="form-control"th:value="${food.foodDetails}" >
+                            </div>
+
+                            <button class="btn btn-success col-md-12">Save Changes</button>
+
+                            <!--              <a th:href="@{'/owner/addNewFood/'+${ownerEntity.restaurantId}}" class="btn btn-warning">Edit</a>-->
+                            <p class="py-2 text-center ">Check Food list <a href="/owner/getFoodList">All food's</a> </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--  <div class="container p-5">-->
+    <!--    <div class="row">-->
+    <!--      <div class="col-md-6 offset-md-3">-->
+    <!--        <div class="card">-->
+    <!--          <div class="card-header text-center fs-4">Add Food</div>-->
+    <!--  <div class="col-6">-->
+
+    <!--    <form action="/addFoodToList" method="Post">-->
+
+    <!--      <div class="form-group">-->
+
+    <!--        <label for="foodName">Food Name</label>-->
+
+    <!--        <input type="text" name="foodName" id="foodName" class="form-control">-->
+
+    <!--        <label for="foodPrice">Food Price</label>-->
+
+    <!--        <input type="number" name="foodPrice" id="foodPrice" class="form-control">-->
+
+    <!--        <label for="foodDetails">Food description</label>-->
+
+    <!--        <input type="text" name="foodDetails" id="foodDetails" class="form-control">-->
+
+    <!--        <br>-->
+
+    <!--        <button type="submit" class="btn btn-primary">submit</button>-->
+
+    <!--      </div>-->
+    <!--    </form>-->
+    <!--  </div>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--    </div>-->
+    <!--  </div>-->
+
+</section>
+
+</body>
+</html>

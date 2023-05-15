@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="base3::layout3(~{::section})">
+<head>
+
+    <link href="/webjars/bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet" />
+    <script type="text/javascript" src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!--    script for static main.ja-->
+    <!--    <script type="text/javascript" src="../static/main.js" th:src="@{/main.js}"></script>-->
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section>
+
+    <h1 style="text-align:center;">Rider's On Field</h1>
+
+    <table style="text-align:center;" class="table table-stripped">
+        <thead class="dark">
+        <tr>
+            <td><h6>Rider Id</h6></td>
+            <td><h6>Rider Name</h6></td>
+            <td><h6>Gender</h6></td>
+            <td><h6>Email</h6></td>
+            <td><h6>Contact Number</h6></td>
+            <td><h6>DOB</h6></td>
+            <td><h6>Address</h6></td>
+            <td><h6>Activation Status</h6></td>
+            <td><h6>Activation Status</h6></td>
+            <td><h6>Edit Details</h6></td>
+            <td><h6>Delete Rider</h6></td>
+
+        </tr>
+        </thead>
+        <tr th:each="riderEntity:${riderEntities}">
+            <td th:text="${riderEntity.riderId}">Rider Id</td>
+            <td th:text="${riderEntity.name}">Rider Name</td>
+            <td th:text="${riderEntity.gender}">Gender</td>
+            <td th:text="${riderEntity.email}">Email</td>
+            <td th:text="${riderEntity.phoneNumber}">Contact Number</td>
+            <td th:text="${riderEntity.dateOfBirth}">DOB</td>
+            <td th:text="${riderEntity.address}">Address</td>
+            <td th:text="${riderEntity.activationStatus}">Activation</td>
+<!--            <td>-->
+<!--                <div class="form-check form-switch">-->
+<!--                            <input class="form-check-input" th:if="" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>-->
+<!--                            <label class="form-check-label" for="flexSwitchCheckChecked"></label>-->
+<!--                        </div>-->
+<!--            </td>-->
+
+            <td><a th:href="@{'/admin/activateStatus/'+${riderEntity.riderId}}" class="btn btn-success">Activate</a>
+                <a th:href="@{'/admin/deactivateStatus/'+${riderEntity.riderId}}" class="btn btn-primary">Deactivate</a></td>
+            <td><a th:href="@{'/admin/updateRiderInfo'+${riderEntity.riderId}}" class="btn btn-warning">Edit</a> </td>
+            <td><a th:href="@{'/admin/deleteRider/'+${riderEntity.riderId}}" class="btn btn-danger">Delete</a> </td>
+
+
+        </tr>
+    </table>
+
+
+</section>
+</body>
+</html>

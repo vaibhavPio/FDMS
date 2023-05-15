@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="baseOwnerHome::layout5(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section>
+    <h1 style="text-align:center;">Order History</h1>
+    <table style="text-align:center;" class="table table-stripped">
+        <thead class="dark">
+        <tr>
+            <td><h6>Order Id</h6></td>
+            <td><h6>Food Name</h6></td>
+            <td><h6>Details</h6></td>
+            <td><h6>Quantity</h6></td>
+            <td><h6>Food Price</h6></td>
+            <td><h6>Total Amount</h6></td>
+            <td><h6>Customer Name</h6></td>
+            <td><h6>Order Date</h6></td>
+
+            <td><h6>Order Status</h6></td>
+            <td><h6>Completed/Cancel Date</h6></td>
+
+            <td><h6></h6></td>
+
+        </tr>
+        </thead>
+        <tr th:each="historyList:${historyList}">
+            <td th:text="${historyList.orderId}">orderId</td>
+            <td th:text="${historyList.foodName}">foodName</td>
+            <td th:text="${historyList.foodDetails}">foodDetails</td>
+            <td th:text="${historyList.foodQuantity}">Quantity</td>
+            <td th:text="${historyList.foodPrice}">foodPrice</td>
+            <td th:text="${historyList.totalPrice}">totalPrice</td>
+            <td th:text="${historyList.customerName}">customerName</td>
+            <td th:text="${historyList.date}">Order Date</td>
+<!--            <td th:text="${}">Completed/Cancel Date</td>-->
+            <td th:text="${historyList.orderStatus} ">Order Status</td>
+
+        </tr>
+    </table>
+
+
+</section>
+</body>
+</html>
